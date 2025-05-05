@@ -1,0 +1,115 @@
+import React, { useRef } from 'react';
+import { delay, easeIn, motion, useInView } from "framer-motion";
+
+
+const data = [
+    {
+        title: "Algorithms & AI",
+        description: "Standards algorithms on standards structures: searching, sorting, insertion, deletion, balance, on: arrays, linked lists, trees. State machine and asynchronous management."
+    },
+    {
+        title: "Graphics",
+        description: "Image management, RGB structure, manipulating areas, drawing, interacting with window systems, handling user input from keyboard/mouse, programming with event loops."
+    },
+    {
+        title: "Group & Interpersonal",
+        description: "Collaboration, relationships, and team management, including handling different interaction dynamics (friendship, tension, etc.)."
+    },
+    {
+        title: "Imperative Programming",
+        description: "C programming: syntax, variables, loops, functions, recursion, memory allocation, linked lists, trees, standard C library."
+    },
+    {
+        title: "Network & System Administration",
+        description: "Networking: IP addressing, subnets, routing, local networks. System administration: Linux setup, security, user management, network services (mail, DNS, web servers)."
+    },
+    {
+        title: "Object-Oriented Programming",
+        description: "C++ principles: classes, namespaces, constructors, destructors, inheritance, abstraction, overloading, templates, STL."
+    },
+    {
+        title: "Rigor",
+        description: "The need to fulfill administrative and technical constraints. The need for a wide and deep testing process to eliminate failure."
+    },
+    {
+        title: "System Programming",
+        description: "Unix system interactions: system calls, filesystem management, process creation, inter-process communication (pipes/signals), TCP & UDP sockets, DNS resolution."
+    },
+    {
+        title: "Web Development",
+        description: "Client-server architecture, web technologies (HTML, CSS, JavaScript), HTTP protocol, backend frameworks (Django, Node.js), MVC model, user authentication, UX/UI principles."
+    }
+];
+
+const containerVariant1 = {
+    hidden: { opacity: 0, x: 150 },
+    show: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.2,
+        }
+    }
+};
+
+const SkillsCard = {
+    hidden: { opacity: 0},
+    show: {
+        opacity: 1,
+        transition: {
+            duration: 1,
+        }
+    }
+};
+
+const Skills = () => {
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, {
+        once: false,
+        amount: 0.5,
+    });
+
+    return (
+        <section ref={sectionRef} className="min-h-screen w-screen flex justify-around flex-row pt-16">
+            <div className='flex mr-10 pt-10 pb-10'>
+                <div className="flex flex-col justify-center z-2 border-r-2 border-gray-400">
+                    <motion.div 
+                        variants={containerVariant1}
+                        initial="hidden"
+                        animate={isInView ? "show" : "hidden"}>
+                        <h1 className="text-black flex font-bebas-15rem items-center justify-center rotate-90 text-9xl font-bold">
+                            Skills
+                        </h1>
+                    </motion.div>
+                </div>
+            </div>
+
+            <motion.div 
+                className="text-black flex justify-center flex-col w-2/3 p-8 m-4"
+                variants={containerVariant1}
+                initial="hidden"
+                animate={isInView ? "show" : "hidden"}
+            >
+                <div className="grid grid-cols-3 gap-5 hover:cursor-pointer m-4">
+                    {data.map((skill, index) => (
+                        <motion.div
+                            key={index}
+                            variants={SkillsCard}
+                            className="group relative h-40 border-1 border-gray-400 backdrop-blur-3xl text-black rounded-2xl shadow-lg overflow-hidden transition duration-500 ease-in-out transform hover:scale-105"
+                        >
+                            <div className="absolute inset-0 flex items-center justify-center text-center text-xl font-bold transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0">
+                                {skill.title}
+                            </div>
+                            <div className="absolute inset-0 flex items-center justify-center text-center px-4 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                                {skill.description}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.div>
+        </section>
+    );
+};
+
+export default Skills;
