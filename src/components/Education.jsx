@@ -9,16 +9,16 @@ const Education = () => {
     });
 
     return (
-        <section  className=" h-screen w-screen flex flex-row items-center justify-center text-center p-16">
-            <div className='flex flex-row justify-between '>
+        <section  className=" h-screen w-screen flex flex-col lg:flex-row items-center justify-center text-center p-16">
+            <div className='flex flex-col lg:flex-row justify-between'>
                 {/* Title Section */}
-                <div className='border-r-2 border-gray-400'>
+                <div className='border-b-2 lg:border-0 lg:border-r-2 border-gray-400'>
                     <motion.h1 
                         ref={eduRef}
                         initial={{ opacity: 0, y: -200 }}
                         animate={isInView ? { opacity: 1, y: -50 } : {}}
                         transition={{ duration: 0.8 }}
-                        className="text-black p-8  font-bold font-bebas-15rem text-6xl">
+                        className="text-black p-8 font-bold font-bebas-15rem text-6xl">
                         Education
                     </motion.h1>
                 </div>

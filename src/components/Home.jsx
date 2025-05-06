@@ -43,8 +43,8 @@ const Home = () => {
           A passionate full-stack developer crafting modern web experiences with React, Gsap, Three.js, Django and Node.js.
           I build fast, responsive, and visually engaging applications that bring ideas to life.
         </p>
-
       </div>
+      
     </section>
   );
 };

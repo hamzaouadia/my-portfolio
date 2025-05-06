@@ -43,7 +43,7 @@ const About = ({ onNavClick }) => {
     const lines = ["I'm", "Hamza", "Ouadia!"];
 
     return (
-        <section ref={sectionRef} className="h-screen w-screen flex flex-row pt-16">
+        <section ref={sectionRef} className="h-screen w-screen lg:flex lg:flex-row pt-16">
             <motion.div
                 className='flex flex-col bg-black m-2 p-4 pt-16'
                 variants={containerVariant}
@@ -53,7 +53,7 @@ const About = ({ onNavClick }) => {
                 {lines.map((text, idx) => (
                     <motion.div
                         key={idx}
-                        className='flex flex-row items-start'
+                        className='flex items-start'
                         variants={lineVariant}
                     >
                         <h1 className="text-eaebf5 text-4xl font-bebas-15rem">
@@ -64,7 +64,7 @@ const About = ({ onNavClick }) => {
             </motion.div>
 
             <motion.div
-                className='items-center justify-end flex flex-col m-2 p-4 pt-16 z-2'
+                className='items-center justify-end flex flex-col m-2 p-4 lg:pb-16 z-2'
                 variants={paragraphVariant}
                 initial="hidden"
                 animate={isInView ? "show" : "hidden"}

@@ -82,12 +82,12 @@ const Contact = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
-                className="w-1/2 h-2/3 flex bg-white rounded-2xl flex-row justify-center items-center"
+                className="flex w-250 h-150 bg-white rounded-2xl flex-row justify-center items-center"
             >
-                <div className='flex items-center justify-center rounded-2xl mr-2 bg-black w-1/2 h-full'>
+                <div className='flex items-center justify-center rounded-2xl mr-2 bg-black w-150 h-full'>
                     <h1 className='text-white p-0 font-bebas-6rem text-center'>Contact me!</h1>
                 </div>
-                <div className='flex flex-col items-center justify-center px-4 rounded-2xl w-1/2 h-full'>
+                <div className='flex flex-col p-2 m-2 items-center justify-center px-4 rounded-2xl w-1/2 h-full'>
                     <div className="flex flex-col justify-center gap-4 w-full h-full">
                         <div className="outline-none">
                             <label>Name</label>

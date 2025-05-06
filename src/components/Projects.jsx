@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from "framer-motion";
+import { delay, easeIn, motion, useInView } from "framer-motion";
 
 
 const data = [
@@ -63,7 +63,7 @@ const ProjectsCard = {
     }
 };
 
-const projects = () => {
+const Projects = () => {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, {
         once: false,
@@ -71,22 +71,22 @@ const projects = () => {
     });
 
     return (
-        <section ref={sectionRef} className="min-h-screen w-screen flex justify-around flex-row pt-16">
+        <section ref={sectionRef} className="h-screen w-screen flex items-center justify-center flex-col lg:flex-row pt-16">
             <div className='flex mr-10 pt-10 pb-10'>
-                <div className="flex flex-col justify-center z-2 border-r-2 border-gray-400">
+                <div className="flex flex-col justify-center z-2 lg:border-0 border-b-2 lg:border-r-2 border-gray-400">
                     <motion.div 
                         variants={containerVariant2}
                         initial="hidden"
                         animate={isInView ? "show" : "hidden"}>
-                        <h1 className="text-black flex font-bebas-15rem items-center justify-center rotate-90 text-9xl font-bold">
-                            projects
+                        <h1 className="text-black lg:p-0 font-bebas-15rem lg:rotate-90 text-9xl font-bold">
+                            Projects
                         </h1>
                     </motion.div>
                 </div>
             </div>
 
             <motion.div 
-                className="text-black flex justify-center flex-col w-2/3 p-8 m-4"
+                className="text-black flex justify-center flex-col w-full p-8 m-4"
                 variants={containerVariant2}
                 initial="hidden"
                 animate={isInView ? "show" : "hidden"}
@@ -112,4 +112,4 @@ const projects = () => {
     );
 };
 
-export default projects;
+export default Projects;

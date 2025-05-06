@@ -51,7 +51,7 @@ const NavBar = ({ onNavClick, activeIndex }) => {
     }, []);
 
     return (
-        <header id="header" className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
+        <header id="header" className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg">
             <div className="container mx-auto flex items-center justify-between p-4 ">
                 <Link
                     to="home"
@@ -66,7 +66,7 @@ const NavBar = ({ onNavClick, activeIndex }) => {
                 </Link>
 
                 <button
-                    className="text-gray-700 hover:text-black md:hidden hover:cursor-pointer"
+                    className="text-gray-700 hover:text-black lg:hidden hover:cursor-pointer"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label="Toggle navigation menu"
                 >
@@ -83,19 +83,19 @@ const NavBar = ({ onNavClick, activeIndex }) => {
                 </button>
 
                 <nav
-                    className={`absolute md:relative top-16 w-full flex justify-between md:w-auto md:top-0 transition-all ease-in-out duration-300 ${
+                    className={`absolute lg:relative top-16 w-full left-0 flex justify-between lg:w-auto lg:top-0 transition-all ease-in-out duration-300 ${
                         isMenuOpen
-                            ? "opacity-100 visible bg-color-eaebf5"
-                            : "opacity-0 md:opacity-100 md:visible"
+                            ? "opacity-100 visible"
+                            : "opacity-0 lg:opacity-100 lg:visible"
                     }`}
                 >
-                    <ul className="flex flex-col overflow-x-auto md:flex-row md:space-x-6 p-4 md:p-0">
+                    <ul className="flex flex-col overflow-x-auto lg:flex-row lg:space-x-6 p-4 lg:p-0">
                         {navItems.map((item, index) => (
                             <li key={index} className="flex-shrink-0">
                                 <Link
                                     to={item.path}
                                     smooth={true}
-                                    className={`underline-animation relative block cursor-pointer font-semibold p-4 md:p-2 text-gray-700 hover:text-black ${
+                                    className={`underline-animation relative block cursor-pointer font-semibold p-4 lg:p-2 text-gray-700 hover:text-black ${
                                         activeIndex === index ? 'active' : ''
                                       }`}                                      
                                     onClick={() => {
@@ -107,17 +107,18 @@ const NavBar = ({ onNavClick, activeIndex }) => {
                                 </Link>
                             </li>
                         ))}
-                        <li className="flex-shrink-0">
-                            <a
-                                href="/my-portfolio/my-cv.pdf"
-                                // download
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="relative block border-2 border-black rounded cursor-context-menu font-semibold p-4 md:p-2 text-gray-700 hover:bg-black hover:text-white"
-                            >
-                                Download CV
-                            </a>
-                        </li>
+                        <div className="flex flex-col lg:flex-row lg:space-x-6">
+                            <li className="flex justify-center">
+                                <a
+                                    href="/my-portfolio/my-cv.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-40 relative border-2 flex justify-center border-black rounded cursor-pointer font-semibold p-4 lg:p-2 text-gray-700 hover:bg-black hover:text-white"
+                                >
+                                    Download CV
+                                </a>
+                            </li>
+                        </div>
                     </ul>
                 </nav>
             </div>
