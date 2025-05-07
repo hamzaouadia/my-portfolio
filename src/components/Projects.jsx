@@ -1,44 +1,37 @@
 import React, { useRef } from 'react';
 import { delay, easeIn, motion, useInView } from "framer-motion";
+import { title } from 'framer-motion/client';
 
 
 const data = [
     {
-        title: "Algorithms & AI",
-        description: "Standards algorithms on standards structures: searching, sorting, insertion, deletion, balance, on: arrays, linked lists, trees. State machine and asynchronous management."
+        title: "minishell",
+        description: "A simple shell implementation in C, demonstrating knowledge of process management and command execution.",
     },
     {
-        title: "Graphics",
-        description: "Image management, RGB structure, manipulating areas, drawing, interacting with window systems, handling user input from keyboard/mouse, programming with event loops."
+        title: "philosophers",
+        description: "A multi-threaded program simulating the dining philosophers problem, showcasing synchronization and concurrency control.",
     },
     {
-        title: "Group & Interpersonal",
-        description: "Collaboration, relationships, and team management, including handling different interaction dynamics (friendship, tension, etc.)."
+        title: "cub3D",
+        description: "A 3D game engine project that implements raycasting to create a 3D environment using C.",
     },
     {
-        title: "Imperative Programming",
-        description: "C programming: syntax, variables, loops, functions, recursion, memory allocation, linked lists, trees, standard C library."
+        title: "inception",
+        description: "A project that involves creating a containerized application using Docker, showcasing skills in virtualization and deployment.",
     },
     {
-        title: "Network & System Administration",
-        description: "Networking: IP addressing, subnets, routing, local networks. System administration: Linux setup, security, user management, network services (mail, DNS, web servers)."
+        title: "cpp_module",
+        description: "A series of C++ modules covering object-oriented programming, templates, and the Standard Template Library (STL).",
     },
     {
-        title: "Object-Oriented Programming",
-        description: "C++ principles: classes, namespaces, constructors, destructors, inheritance, abstraction, overloading, templates, STL."
+        title: "webserv",
+        description: "A web server implementation in C++ that handles HTTP/HTTPS requests and responses, demonstrating networking skills.",
     },
     {
-        title: "Rigor",
-        description: "The need to fulfill administrative and technical constraints. The need for a wide and deep testing process to eliminate failure."
+        title: "ft_transcendence",
+        description: "A web application that allows users to create and manage their own projects, showcasing full-stack development skills.",
     },
-    {
-        title: "System Programming",
-        description: "Unix system interactions: system calls, filesystem management, process creation, inter-process communication (pipes/signals), TCP & UDP sockets, DNS resolution."
-    },
-    {
-        title: "Web Development",
-        description: "Client-server architecture, web technologies (HTML, CSS, JavaScript), HTTP protocol, backend frameworks (Django, Node.js), MVC model, user authentication, UX/UI principles."
-    }
 ];
 
 const containerVariant2 = {
