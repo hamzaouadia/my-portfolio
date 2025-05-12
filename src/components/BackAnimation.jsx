@@ -8,7 +8,7 @@ import CanvasLoader from "./CanvasLoader";
 
 const BackAnimation = () => {
   return (
-        <div className="fixed w-full h-full z-[-1]">
+        <div className="fixed w-full h-full z-0">
             <Canvas camera={{ position: [0, 10, 4] }}>
             {/* <Canvas camera={{ position: [0, 0, 100] }}> */}
               <Suspense fallback={<CanvasLoader />}>

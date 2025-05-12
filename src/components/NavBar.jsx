@@ -51,7 +51,7 @@ const NavBar = ({ onNavClick, activeIndex }) => {
     }, []);
 
     return (
-        <header id="header" className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg">
+        <header id="header" className="fixed top-0 left-0 right-0 z-10 backdrop-blur-lg">
             <div className="container mx-auto flex items-center justify-between p-4 ">
                 <Link
                     to="home"
