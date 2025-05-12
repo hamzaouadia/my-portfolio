@@ -72,7 +72,7 @@ const Contact = () => {
     
 
     return (
-        <section className="h-screen w-screen flex items-center justify-center text-center p-16 overflow-hidden">
+        <section className="h-screen w-screen flex items-center justify-center text-center z-10 p-16 overflow-hidden">
             {!statusMessageParent && (
             
             <motion.form
