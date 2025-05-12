@@ -72,7 +72,7 @@ const Contact = () => {
     
 
     return (
-        <section className="h-screen w-screen flex items-center justify-center text-center z-10 p-16 overflow-hidden">
+        <section className="h-screen w-screen flex items-center justify-center text-center p-16 overflow-hidden">
             {!statusMessageParent && (
             
             <motion.form
@@ -82,7 +82,7 @@ const Contact = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
-                className="flex w-250 h-150 bg-white rounded-2xl flex-row justify-center items-center"
+                className="flex w-250 h-150 bg-white z-10 rounded-2xl flex-row justify-center items-center"
             >
                 <div className='flex items-center justify-center rounded-2xl mr-2 bg-black w-150 h-full'>
                     <h1 className='text-white p-0 font-bebas-6rem text-center'>Contact me!</h1>
@@ -149,7 +149,7 @@ const Contact = () => {
             </motion.form>
             )}
             {statusMessageParent && (
-                <div className='flex flex-col items-center justify-center rounded-2xl bg-black w-1/3 h-2/3'>
+                <div className='flex flex-col items-center z-10 justify-center rounded-2xl bg-black w-1/3 h-2/3'>
                     <div className='flex flex-col justify-center items-start gap-0'>
                         <h1 className="h1 font-bebas-15rem text-9xl font-bold border-b-2 text-white border-white">
                             {statusMessageParent}

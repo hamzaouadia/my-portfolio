@@ -117,7 +117,7 @@ const App = () => {
 
 
   return (
-    <div className="bg-color-eaebf5  text-black">
+    <div className="bg-color-eaebf5 text-black">
       <NavBar onNavClick={handleNavClick} activeIndex={activeIndex} />
       <BackAnimation />
       <div className="vertical-section mx-auto z-10 overflow-x-hidden">

@@ -8,7 +8,7 @@ import CanvasLoader from "./CanvasLoader";
 
 const BackAnimation = () => {
   return (
-        <div className="fixed w-full h-full z-0">
+        <div className="fixed w-full h-full">
             <Canvas camera={{ position: [0, 10, 4] }}>
             {/* <Canvas camera={{ position: [0, 0, 100] }}> */}
               <Suspense fallback={<CanvasLoader />}>
@@ -17,7 +17,7 @@ const BackAnimation = () => {
               <Box/>
               <ambientLight intensity={0.5} />
               </Suspense>
-              <OrbitControls enableZoom={false} />
+              {/* <OrbitControls enableZoom={false} /> */}
             </Canvas>
         </div>
   );
