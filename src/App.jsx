@@ -119,7 +119,7 @@ const App = () => {
   return (
     <div className="bg-color-eaebf5 text-black">
       <NavBar onNavClick={handleNavClick} activeIndex={activeIndex} />
-      {/* <BackAnimation /> */}
+      <BackAnimation />
       <div className="vertical-section mx-auto overflow-x-hidden">
         <Element id="home"> <Home /> </Element>
 
