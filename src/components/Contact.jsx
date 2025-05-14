@@ -85,7 +85,7 @@ const Contact = () => {
                 className="flex w-250 h-150 bg-white z-10 rounded-2xl flex-row justify-center items-center"
             >
                 <div className='flex items-center justify-center rounded-2xl mr-2 bg-black w-150 h-full'>
-                    <h1 className='text-white p-0 font-bebas-6rem text-center'>Contact me!</h1>
+                    <h1 className='text-white p-0 font-bebas leading-[1] text-6xl text-center'>Contact me!</h1>
                 </div>
                 <div className='flex flex-col p-2 m-2 items-center justify-center px-4 rounded-2xl w-1/2 h-full'>
                     <div className="flex flex-col justify-center gap-4 w-full h-full">
@@ -151,7 +151,7 @@ const Contact = () => {
             {statusMessageParent && (
                 <div className='flex flex-col items-center z-10 justify-center rounded-2xl bg-black w-1/3 h-2/3'>
                     <div className='flex flex-col justify-center items-start gap-0'>
-                        <h1 className="h1 font-bebas-15rem text-9xl font-bold border-b-2 text-white border-white">
+                        <h1 className="h1 font-bebas leading-[1] text-15xl font-bold border-b-2 text-white border-white">
                             {statusMessageParent}
                         </h1>
                         <h1 className='text-white font-medium text-2xl'>

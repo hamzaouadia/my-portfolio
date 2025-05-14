@@ -113,16 +113,13 @@ const App = () => {
       gsap.killTweensOf(window);
     };
   }, []);
-  
-
 
   return (
     <div className="bg-color-eaebf5 text-black">
       <NavBar onNavClick={handleNavClick} activeIndex={activeIndex} />
-      <BackAnimation />
+      {/* <BackAnimation /> */}
       <div className="vertical-section mx-auto z-10 overflow-x-hidden">
         <Element id="home"> <Home /> </Element>
-
         <div className="horizontal-sections flex h-screen w-screen">
           <Element className="content" id="about"> <About onNavClick={handleNavClick} /> </Element>
           <Element className="content" id="skills"> <Skills /> </Element>

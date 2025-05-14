@@ -78,7 +78,7 @@ const Skills = () => {
                         variants={containerVariant1}
                         initial="hidden"
                         animate={isInView ? "show" : "hidden"}>
-                        <h1 className="text-black lg:p-0 font-bebas-15rem lg:rotate-90 text-9xl font-bold">
+                        <h1 className="text-black lg:p-0 font-bebas leading-[1] text-15xl lg:rotate-90 font-extrabold">
                             Skills
                         </h1>
                     </motion.div>

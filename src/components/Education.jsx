@@ -18,7 +18,7 @@ const Education = () => {
                         initial={{ opacity: 0, y: -200 }}
                         animate={isInView ? { opacity: 1, y: -50 } : {}}
                         transition={{ duration: 0.8 }}
-                        className="text-black p-8 font-bold font-bebas-15rem text-6xl">
+                        className="text-black p-8 font-bold font-bebas leading-[1] text-15xl">
                         Education
                     </motion.h1>
                 </div>

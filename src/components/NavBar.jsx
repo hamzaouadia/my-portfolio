@@ -51,7 +51,7 @@ const NavBar = ({ onNavClick, activeIndex }) => {
     }, []);
 
     return (
-        <header id="header" className="fixed top-0 left-0 right-0 z-10 backdrop-blur-lg">
+        <header id="header" className="fixed font-poppins top-0 left-0 right-0 z-10 backdrop-blur-lg">
             <div className="container mx-auto flex items-center justify-between p-4 ">
                 <Link
                     to="home"
@@ -60,7 +60,7 @@ const NavBar = ({ onNavClick, activeIndex }) => {
                         setIsMenuOpen(false);
                         onNavClick(0);
                     }}
-                    className="glitch text-gray-700 cursor-pointer hover:text-black font-bold text-xl"
+                    className="glitch text-gray-700 font-bebas leading-[1] font-bold text-4xl cursor-pointer hover:text-black"
                 >
                     {glitchText}
                 </Link>
@@ -83,19 +83,19 @@ const NavBar = ({ onNavClick, activeIndex }) => {
                 </button>
 
                 <nav
-                    className={`absolute lg:relative top-16 w-full left-0 flex justify-between lg:w-auto lg:top-0 transition-all ease-in-out duration-300 ${
+                    className={`${
                         isMenuOpen
-                            ? "opacity-100 visible"
-                            : "opacity-0 lg:opacity-100 lg:visible"
-                    }`}
+                            ? "opacity-100 visible pointer-events-auto bg-color-eaebf5 backdrop-blur-2xl"
+                            : "opacity-0 invisible pointer-events-none"
+                    } absolute top-16 w-full left-0 flex flex-col z-50 transition-all ease-in-out duration-300 lg:relative lg:top-0 lg:w-auto lg:flex-row lg:items-center lg:opacity-100 lg:visible lg:pointer-events-auto`}
                 >
-                    <ul className="flex flex-col overflow-x-auto lg:flex-row lg:space-x-6 p-4 lg:p-0">
+                    <ul className="flex flex-col overflow-x-auto font-extrabold lg:flex-row lg:space-x-6 p-4 lg:p-0">
                         {navItems.map((item, index) => (
-                            <li key={index} className="flex-shrink-0">
+                            <li key={index} className="flex-shrink-0 pl-4 lg:pl-0">
                                 <Link
                                     to={item.path}
                                     smooth={true}
-                                    className={`underline-animation relative block cursor-pointer font-semibold p-4 lg:p-2 text-gray-700 hover:text-black ${
+                                    className={`underline-animation relative block cursor-pointer p-4 lg:p-2 text-gray-700 hover:text-black ${
                                         activeIndex === index ? 'active' : ''
                                       }`}                                      
                                     onClick={() => {
@@ -113,7 +113,7 @@ const NavBar = ({ onNavClick, activeIndex }) => {
                                     href="/my-portfolio/my-cv.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-40 relative border-2 flex justify-center border-black rounded cursor-pointer font-semibold p-4 lg:p-2 text-gray-700 hover:bg-black hover:text-white"
+                                    className="w-40 relative border-2 flex justify-center border-black rounded cursor-pointer p-4 lg:p-2 text-gray-700 hover:bg-black hover:text-white"
                                 >
                                     Download CV
                                 </a>
