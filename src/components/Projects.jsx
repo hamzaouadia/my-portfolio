@@ -4,34 +4,34 @@ import { title } from 'framer-motion/client';
 
 
 const data = [
-    {
-        title: "minishell",
-        description: "A simple shell implementation in C, demonstrating knowledge of process management and command execution.",
-    },
-    {
-        title: "philosophers",
-        description: "A multi-threaded program simulating the dining philosophers problem, showcasing synchronization and concurrency control.",
-    },
-    {
-        title: "cub3D",
-        description: "A 3D game engine project that implements raycasting to create a 3D environment using C.",
-    },
-    {
-        title: "inception",
-        description: "A project that involves creating a containerized application using Docker, showcasing skills in virtualization and deployment.",
-    },
-    {
-        title: "cpp_module",
-        description: "A series of C++ modules covering object-oriented programming, templates, and the Standard Template Library (STL).",
-    },
-    {
-        title: "webserv",
-        description: "A web server implementation in C++ that handles HTTP/HTTPS requests and responses, demonstrating networking skills.",
-    },
-    {
-        title: "ft_transcendence",
-        description: "A web application that allows users to create and manage their own projects, showcasing full-stack development skills.",
-    },
+  {
+    title: "minishell",
+    description: "A simplified Unix shell implemented in C. Covers process creation, piping, redirection, signal handling, and built-in command parsing — reinforcing low-level system programming concepts."
+  },
+  {
+    title: "philosophers",
+    description: "A concurrency-focused project simulating the classic dining philosophers problem. Emphasizes thread management, mutex usage, and avoiding race conditions and deadlocks."
+  },
+  {
+    title: "cub3D",
+    description: "A basic 3D rendering engine using raycasting in C, inspired by early FPS games like Wolfenstein 3D. Demonstrates graphics programming, math, and event-driven input handling."
+  },
+  {
+    title: "inception",
+    description: "A Docker-based project focused on service orchestration. Involves building a multi-container environment (Nginx, WordPress, MariaDB, etc.), highlighting skills in DevOps, system design, and container networking."
+  },
+  {
+    title: "cpp_module",
+    description: "A series of C++ modules introducing object-oriented programming principles, inheritance, polymorphism, exception handling, templates, and STL usage through practical exercises."
+  },
+  {
+    title: "webserv",
+    description: "A from-scratch HTTP server in C++ supporting GET, POST, and DELETE methods, CGI handling, and multiple client connections — reinforcing deep understanding of networking and protocol-level programming."
+  },
+  {
+    title: "ft_transcendence",
+    description: "A full-stack web application (typically using Django, JavaScript, and PostgreSQL) featuring authentication, real-time multiplayer game (Ping-Pong), chat, and user management. Represents the capstone project combining front-end, back-end, and DevOps skills."
+  }
 ];
 
 const containerVariant2 = {
@@ -71,7 +71,7 @@ const Projects = () => {
                         variants={containerVariant2}
                         initial="hidden"
                         animate={isInView ? "show" : "hidden"}>
-                        <h1 className="text-black lg:p-0 font-bebas leading-[1] text-15xl lg:rotate-90 font-extrabold">
+                        <h1 className="text-black lg:p-0 font-bebas leading-[1] text-15xl lg:rotate-90 font-bold text-shadow-md">
                             Projects
                         </h1>
                     </motion.div>

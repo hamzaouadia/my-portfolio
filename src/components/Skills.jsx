@@ -3,43 +3,44 @@ import { delay, easeIn, motion, useInView } from "framer-motion";
 
 
 const data = [
-    {
-        title: "Algorithms & AI",
-        description: "Standards algorithms on standards structures: searching, sorting, insertion, deletion, balance, on: arrays, linked lists, trees. State machine and asynchronous management."
-    },
-    {
-        title: "Graphics",
-        description: "Image management, RGB structure, manipulating areas, drawing, interacting with window systems, handling user input from keyboard/mouse, programming with event loops."
-    },
-    {
-        title: "Group & Interpersonal",
-        description: "Collaboration, relationships, and team management, including handling different interaction dynamics (friendship, tension, etc.)."
-    },
-    {
-        title: "Imperative Programming",
-        description: "C programming: syntax, variables, loops, functions, recursion, memory allocation, linked lists, trees, standard C library."
-    },
-    {
-        title: "Network & System Administration",
-        description: "Networking: IP addressing, subnets, routing, local networks. System administration: Linux setup, security, user management, network services (mail, DNS, web servers)."
-    },
-    {
-        title: "Object-Oriented Programming",
-        description: "C++ principles: classes, namespaces, constructors, destructors, inheritance, abstraction, overloading, templates, STL."
-    },
-    {
-        title: "Rigor",
-        description: "The need to fulfill administrative and technical constraints. The need for a wide and deep testing process to eliminate failure."
-    },
-    {
-        title: "System Programming",
-        description: "Unix system interactions: system calls, filesystem management, process creation, inter-process communication (pipes/signals), TCP & UDP sockets, DNS resolution."
-    },
-    {
-        title: "Web Development",
-        description: "Client-server architecture, web technologies (HTML, CSS, JavaScript), HTTP protocol, backend frameworks (Django, Node.js), MVC model, user authentication, UX/UI principles."
-    }
+  {
+    title: "Algorithms & AI",
+    description: "Implementation of standard algorithms (search, sort, insert, delete) on data structures like arrays, linked lists, and trees. Introduction to finite state machines, backtracking, and asynchronous logic handling. Emphasis on optimization and problem-solving."
+  },
+  {
+    title: "Graphics",
+    description: "Low-level graphics programming using libraries like MiniLibX. Topics include pixel manipulation, RGB color models, 2D/3D rendering basics, event handling, and managing window contexts. Projects include simple games and visualization tools."
+  },
+  {
+    title: "Group & Interpersonal Skills",
+    description: "Working collaboratively in peer-based environments. Emphasis on communication, feedback culture, conflict resolution, and leadership. Managing group dynamics in team projects like 'Libft', 'minishell', and 'ft_services'."
+  },
+  {
+    title: "Imperative Programming",
+    description: "Fundamentals of programming in C. Topics include memory management, pointer arithmetic, recursion, data structures, and use of the standard C library. Strong focus on writing clean, modular, and efficient code under Unix."
+  },
+  {
+    title: "Network & System Administration",
+    description: "Core networking concepts including IP, subnets, DNS, routing. Hands-on system administration: user/group management, SSH, firewalls, cron jobs, and configuring services like Nginx and MariaDB inside Linux-based environments (Docker, VMs)."
+  },
+  {
+    title: "Object-Oriented Programming",
+    description: "Advanced C++ programming. Key concepts include classes, inheritance, polymorphism, abstraction, templates, and the Standard Template Library (STL). Projects involve design patterns and implementing scalable OOP systems."
+  },
+  {
+    title: "Rigor",
+    description: "High standards in code correctness, error handling, and testing. Rigorous peer review processes and automated testing tools (Moulinette) to ensure robustness and edge-case coverage. Required to meet strict project specifications and deadlines."
+  },
+  {
+    title: "System Programming",
+    description: "Interfacing directly with the Unix OS. Topics include file I/O, process management (fork, exec, wait), signals, pipes, sockets, and threading. Projects such as 'minishell' and 'Philosophers' reinforce deep understanding of systems-level concepts."
+  },
+  {
+    title: "Web Development",
+    description: "Full-stack development with modern tools. Topics include HTML/CSS/JS, RESTful APIs, authentication, deployment, and frameworks like Node.js and Django. Emphasis on backend-first thinking, clean architecture, and UX-aware design."
+  }
 ];
+
 
 const containerVariant1 = {
     hidden: { opacity: 0, x: 150 },
@@ -78,7 +79,7 @@ const Skills = () => {
                         variants={containerVariant1}
                         initial="hidden"
                         animate={isInView ? "show" : "hidden"}>
-                        <h1 className="text-black lg:p-0 font-bebas leading-[1] text-15xl lg:rotate-90 font-extrabold">
+                        <h1 className="text-black lg:p-0 font-bebas leading-[1] text-15xl lg:rotate-90 font-bold text-shadow-md ">
                             Skills
                         </h1>
                     </motion.div>
