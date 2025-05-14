@@ -149,7 +149,7 @@ const Contact = () => {
             </motion.form>
             )}
             {statusMessageParent && (
-                <div className='flex flex-col items-center z-10 justify-center rounded-2xl bg-black w-1/3 h-2/3'>
+                <div className='flex flex-col items-center z-10 justify-center rounded-2xl bg-black w-250 h-150'>
                     <div className='flex flex-col justify-center items-start gap-0'>
                         <h1 className="h1 font-bebas leading-[1] text-15xl font-bold border-b-2 text-white border-white">
                             {statusMessageParent}
