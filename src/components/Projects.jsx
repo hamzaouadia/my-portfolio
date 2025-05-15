@@ -71,7 +71,7 @@ const Projects = () => {
                         variants={containerVariant2}
                         initial="hidden"
                         animate={isInView ? "show" : "hidden"}>
-                        <h1 className="text-black lg:p-0 font-bebas leading-[1] text-15xl lg:rotate-90 font-bold text-shadow-md">
+                        <h1 className="text-black lg:p-0 font-bebas leading-[1] lg:leading-[2] lg:text-[clamp(3rem,25vh,30rem)] text-[clamp(3rem,30vw,30rem)] lg:rotate-90 font-bold text-shadow-md ">
                             Projects
                         </h1>
                     </motion.div>
@@ -85,17 +85,17 @@ const Projects = () => {
                 animate={isInView ? "show" : "hidden"}
             >
                 <div className="grid grid-cols-3 gap-5 hover:cursor-pointer m-4">
-                    {data.map((skill, index) => (
+                    {data.map((project, index) => (
                         <motion.div
                             key={index}
                             variants={ProjectsCard}
                             className="group relative h-40 border-1 border-gray-400 backdrop-blur-3xl text-black rounded-2xl shadow-lg overflow-hidden transition duration-500 ease-in-out transform hover:scale-105"
                         >
-                            <div className="absolute inset-0 flex items-center justify-center text-center text-xl font-bold transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0">
-                                {skill.title}
+                            <div className="absolute inset-0 p-2 flex items-center justify-center text-center lg:text-[clamp(1.2rem,1vh,2rem)] text-[clamp(1.2rem,1vw,2rem)] font-bold transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0">
+                                {project.title}
                             </div>
-                            <div className="absolute inset-0 flex items-center justify-center text-center px-4 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-                                {skill.description}
+                            <div className="absolute inset-0 flex items-center justify-center text-center px-4 lg:text-[clamp(0.7rem,1vh,2rem)] text-[clamp(0.7rem,1vh,2rem)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                                {project.description}
                             </div>
                         </motion.div>
                     ))}

@@ -37,7 +37,7 @@ const About = ({ onNavClick }) => {
             <div className=''>
                 <div className="flex flex-col lg:flex-row p-15 h-full w-full">
                     <motion.h1
-                        className="font-bebas text-[clamp(3rem,60vw,60rem)] leading-none font-bold text-shadow"
+                        className="font-bebas lg:text-[clamp(3rem,80vh,60rem)] text-[clamp(3rem,60vw,60rem)] leading-none font-bold text-shadow"
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
                         variants={popIn}
@@ -55,34 +55,34 @@ const About = ({ onNavClick }) => {
                         >
                             I'AM
                         </motion.h1>
-                        {aboutText.trim().split('\n\n').map((paragraph, index) => (
+                            {aboutText.trim().split('\n\n').map((paragraph, index) => (
+                                <motion.p
+                                    key={index}
+                                    className="font-medium text-[clamp(0.5rem,1.6vh,1.5rem)] m-2 mt-0"
+                                    initial="hidden"
+                                    animate={isInView ? "visible" : "hidden"}
+                                    variants={fadeIn}
+                                    custom={index + 1}
+                                >
+                                    {paragraph}
+                                </motion.p>
+                            ))}
                             <motion.p
-                                key={index}
-                                className="font-medium text-[clamp(1rem,1vw,1rem)] m-2 mt-0"
                                 initial="hidden"
                                 animate={isInView ? "visible" : "hidden"}
                                 variants={fadeIn}
-                                custom={index + 1}
+                                custom={aboutText.split('\n\n').length + 1}
+                                className=""
                             >
-                                {paragraph}
+                                <Link
+                                    to="contact"
+                                    smooth={true}
+                                    onClick={() => onNavClick(5)}
+                                    className="font-extrabold underline-animation m-2 mt-0 hover:cursor-pointer"
+                                >
+                                    let’s connect!
+                                </Link>
                             </motion.p>
-                        ))}
-                        <motion.p
-                            initial="hidden"
-                            animate={isInView ? "visible" : "hidden"}
-                            variants={fadeIn}
-                            custom={aboutText.split('\n\n').length + 1}
-                            className=""
-                        >
-                            <Link
-                                to="contact"
-                                smooth={true}
-                                onClick={() => onNavClick(5)}
-                                className="font-extrabold underline-animation m-2 mt-0 hover:cursor-pointer"
-                            >
-                                let’s connect!
-                            </Link>
-                        </motion.p>
                     </div>
                 </div>
             </div>

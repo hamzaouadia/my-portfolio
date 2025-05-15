@@ -37,11 +37,11 @@ const Home = () => {
       <div className="div-1">
         <h1
           className="h1 font-bebas opacity-0 font-bold text-shadow-md leading-[1] 
-          text-[clamp(3.5rem,18vw,15rem)]"
+          text-[clamp(1.5rem,20vw,15rem)]"
         >
           Hi, I'm M4k3r
         </h1>
-        <p className="p opacity-0 max-w-4xl text-[clamp(1rem,1vw,1.5rem)] mt-4">
+        <p className="p opacity-0 max-w-4xl text-[clamp(1rem,2vw,10rem)] lg:text-[clamp(1rem,1vw,10rem)] mt-4">
           A passionate full-stack developer crafting modern web experiences with React, Gsap, Three.js, Django and Node.js.
           I build fast, responsive, and visually engaging applications that bring ideas to life.
         </p>
