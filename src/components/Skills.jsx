@@ -102,7 +102,7 @@ const Skills = () => {
                             <div className="absolute inset-0 p-2 flex items-center justify-center text-center lg:text-[clamp(1.2rem,1vh,2rem)] text-[clamp(1.2rem,1vw,2rem)] font-bold transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0">
                                 {skill.title}
                             </div>
-                            <div className="absolute inset-0 flex items-center justify-center text-center px-4 lg:text-[clamp(0.7rem,1vh,2rem)] text-[clamp(0.7rem,1vh,2rem)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <div className="absolute inset-0 flex items-center justify-center text-center px-4 lg:text-[clamp(0.7rem,1vh,2rem)] text-[clamp(0.5rem,1vh,2rem)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                                 {skill.description}
                             </div>
                         </motion.div>

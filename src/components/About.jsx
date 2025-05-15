@@ -78,7 +78,7 @@ const About = ({ onNavClick }) => {
                                     to="contact"
                                     smooth={true}
                                     onClick={() => onNavClick(5)}
-                                    className="font-extrabold underline-animation m-2 mt-0 hover:cursor-pointer"
+                                    className="font-extrabold text-[clamp(0.5rem,1.6vh,1.5rem)] underline-animation m-2 mt-0 hover:cursor-pointer"
                                 >
                                     let’s connect!
                                 </Link>
