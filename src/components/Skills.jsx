@@ -92,12 +92,12 @@ const Skills = () => {
                 initial="hidden"
                 animate={isInView ? "show" : "hidden"}
             >
-                <div className="grid grid-cols-3 gap-5 hover:cursor-pointer m-4">
+                <div className="tr-blr-container grid grid-cols-3 gap-5 m-4">
                     {data.map((skill, index) => (
                         <motion.div
                             key={index}
                             variants={SkillsCard}
-                            className="group relative h-40 border-1 border-gray-400 backdrop-blur-3xl text-black rounded-2xl shadow-lg overflow-hidden transition duration-500 ease-in-out transform hover:scale-105"
+                            className="tr-blr group hover:cursor-pointer relative h-40 border-1 border-gray-400 backdrop-blur-3xl text-black rounded-2xl shadow-lg overflow-hidden transition duration-500 ease-in-out transform hover:scale-105"
                         >
                             <div className="absolute inset-0 px-2 flex items-center justify-center text-center lg:text-[clamp(1rem,2vh,3rem)] text-[clamp(1rem,2vw,3rem)] font-bold transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0">
                                 {skill.title}
