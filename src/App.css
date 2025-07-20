@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4a5568 transparent;
+}
+
+
+/* High-contrast blend effect */
+.blend-text {
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.blend-text-test {
+  position: sticky;
+  color: white;
+  mix-blend-mode: difference;
+}
+
+/* Hide scrollbar if you want clean layout (optional) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 10px;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px black;
+  color: transparent;
+}
+
+
+@font-face {
+  font-family: "Peace-Regular";
+  src: url("/fonts/Peace-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quarner";
+  src: url("/fonts/Quarner.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.peace-font {
+  font-family: "Peace-Regular", sans-serif;
+  font-size: 30rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.peace-font-medium {
+  font-family: "Peace-Regular", sans-serif;
+  line-height: 1;
+}
+
+.quarner-font {
+  font-size: 30rem;
+  font-family: "Quarner", sans-serif;
+}
+
+#cursor-hole {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    box-shadow: 0 0 0 2px white; /* makes a large white overlay with hole */
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+.hover-target{
+  cursor: none;
+}
