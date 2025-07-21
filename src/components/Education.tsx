@@ -19,7 +19,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.3, // delay between each character
+      staggerChildren: 0.3,
     },
   },
 };
@@ -42,7 +42,6 @@ export default function Education() {
             className="relative h-full bg-white z-10 flex flex-col lg:flex-row justify-center items-center"
         >
             <div className="absolute top-[-0.1rem] left-0 w-full lg:h-[31.2vh] h-40 bg-black"/>
-            {/* Left Side (Text Content) */}
             <div className="w-full h-full flex flex-col justify-center lg:items-start items-center pt-28 lg:py-0 py-10 lg:pt-0 lg:px-30 px-4">
                 <motion.div
                     variants={containerVariants}
@@ -67,7 +66,6 @@ export default function Education() {
                 </div>
             </div>
 
-            {/* Right Side (Image) */}
             <div className="h-full lg:w-2/3 w-full flex flex-row justify-center items-center">
                 <div className="h-full flex items-center">
                     <img

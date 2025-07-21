@@ -93,11 +93,11 @@ export default function ShowProject(
                 opacity: 0,
                 width: `${window.innerWidth}px`,
                 height: `${window.innerHeight}px`,
-                background: "rgba(255, 255, 255, 0.05)", // translucent white
-                backdropFilter: "blur(12px)", // 👈 blur effect
-                WebkitBackdropFilter: "blur(12px)", // 👈 Safari support
+                background: "rgba(255, 255, 255, 0.05)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
                 pointerEvents: activeProject ? "auto" : "none",
-                zIndex: 9998,
+                zIndex: 9000,
                 transform: "translate(-50%, -50%)",
                 overflow: "hidden",
                 padding: "1rem",
@@ -106,46 +106,38 @@ export default function ShowProject(
 
             {/* ✅ Active Project Content */}
             {activeProject && (
-                <div className="w-full h-full min-h-screen text-black flex justify-center items-center py-10 sm:py-16 z-50">
-                    <div className=" flex flex-col lg:max-w-4xl w-full bg-white border border-white/10 shadow-lg lg:p-8 p-4 transition-all duration-300 overflow-y-auto max-h-[90vh] relative">
-                        
+                <div className="w-full h-full min-h-screen text-black flex flex-col justify-center items-center py-10 sm:py-16 z-50">
+                    <div className="relative flex flex-col lg:max-w-4xl w-full bg-white shadow-lg transition-all duration-300 overflow-y-auto max-h-[90vh]">
                         <div
-                            className=" absolute top-[10px] right-[10px] hover-target z-[100] p-2"
+                            className="w-full p-4 flex justify-end bg-black z-[100]"
                             onClick={handleClose}
                         >
-                            <Minimize className="w-5 h-5" />
+                            <Minimize className="w-5 h-5 text-white" />
                         </div>
+                        <div className="flex flex-col m-4 mt-6">
+                            <div className="flex items-center justify-between mb-6 pb-2">
+                                <h1 className="text-2xl sm:text-4xl peace-font-medium">
+                                    {activeProject.name}
+                                </h1>
+                            </div>
 
-                        {/* Header */}
-                        <div className="flex items-center justify-between mb-6 border-b border-white/20 pb-2">
-                            <h1 className="text-2xl sm:text-4xl peace-font-medium">
-                                {activeProject.name}
-                            </h1>
-
-                            {/* GitHub Link */}
+                            <div className="text-base sm:text-lg font-light whitespace-pre-line leading-relaxed">
+                                {highlightTechnologies(activeProject.alldescription)}
+                            </div>
+                            <div className='mt-4 text-sm text-gray-500'>
+                                {activeProject.github && (
+                                    <a
+                                        href={activeProject.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-black flex items-center gap-1 text-sm hover:underline"
+                                        >
+                                        <Github className="w-4 h-4" />
+                                        GitHub
+                                    </a>
+                                )}
+                            </div> 
                         </div>
-
-                        {/* Description */}
-                        <div className="text-base sm:text-lg font-light whitespace-pre-line leading-relaxed">
-                            {highlightTechnologies(activeProject.alldescription)}
-                        </div>
-                        <div className='mt-4 text-sm text-gray-500'>
-                            {activeProject.github && (
-                                <a
-                                    href={activeProject.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-black flex items-center gap-1 text-sm hover-target"
-                                    >
-                                    <Github className="w-4 h-4" />
-                                    GitHub
-                                </a>
-                            )}
-                        </div>
-
-                        <div className='cursor-hole'/>
-                        {/* Optional Visual Block */}
-                        {/* <div className="mt-6 sm:mt-8 w-full h-40 sm:h-64 bg-amber-400 rounded-xl shadow-inner"></div> */}
                     </div>
                 </div>
             )}

@@ -47,8 +47,6 @@ export default function Footer() {
                     >
                         <Mail className="w-5 h-5" />
                     </a>
-
-                    {/* Add more social icons as needed */}
                 </div>
             </div>
         </footer>

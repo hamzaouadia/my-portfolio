@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useEffect, useState } from 'react';
-
+import emailjs from 'emailjs-com';
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
@@ -24,14 +24,56 @@ export default function Connect() {
     const buttonInView = useInView(buttonRef, { once: false });
     const isMobile = useIsMobile();
 
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+
+    interface HandleSubmitEvent extends React.FormEvent<HTMLFormElement> {}
+
+    const handleSubmit = (e: HandleSubmitEvent) => {
+        e.preventDefault();
+
+        const { name, email, message } = formData;
+
+        // ✅ Validate all fields are filled
+        if (!name.trim() || !email.trim() || !message.trim()) {
+            alert("Please fill in all fields before sending.");
+            return;
+        }
+
+        // ✅ Proceed with sending if validation passes
+        emailjs.sendForm(
+            'service_w3emcys',
+            'template_4082xnq',
+            e.target as HTMLFormElement,
+            'ak1mmxiycz3zZO3LS'
+        )
+            .then(() => {
+            setFormData({ name: '', email: '', message: '' });
+            console.log("Email sent!");
+            })
+            .catch(err => {
+            console.error("Email failed:", err);
+            });
+    };
+
     return (
         <section
             id="Connect"
             className="min-h-screen z-10 bg-[#111111] flex flex-col justify-center items-center"
         >
             <div className="w-full h-full flex flex-col justify-center items-center">
-                {/* Header Text */}
-                <div className="w-full  lg:w-1/2 flex flex-row justify-center gap-1 items-end px-4 pt-20 lg:pt-0">
+                <div className="w-full mt-20 lg:mt-0 lg:w-1/2 flex flex-row justify-center gap-1 items-end px-4 pt-20 lg:pt-0">
                     <div className="flex flex-col items-end ">
                         <div className="">
                             <motion.p
@@ -55,11 +97,9 @@ export default function Connect() {
                         >
                             love to hear from you!
                         </motion.p>
-
                 </div>
 
 
-                {/* Form Section */}
                 <div className="w-full flex lg:flex-row flex-col text-white items-start justify-center lg:gap-0 gap-8 lg:px-30 px-2 py-30">
                     <div className="lg:w-100 w-full bg-[#111111] z-10">
                         <p className="w-full peace-font-medium lg:text-end text-center lg:text-[8rem] text-[3.5rem] lg:whitespace-normal whitespace-nowrap">
@@ -69,23 +109,28 @@ export default function Connect() {
 
                     <motion.form
                         ref={formRef}
+                        onSubmit={handleSubmit}
                         initial={{ opacity: 0 }}
                         animate={formInView ? { opacity: 1, y: 0, x: 0 } : {}}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                         className="lg:w-1/2 w-full px-4 flex flex-col items-end justify-start gap-6"
                     >
-                        {/* Name and Email */}
                         <div className="w-full flex lg:flex-row flex-col items-start lg:gap-10 gap-6">
                             <div className="relative w-full">
                                 <input
                                     type="text"
                                     id="name"
-                                    placeholder=" "
-                                    className="peer w-full border-white/50 border-b py-2 text-white focus:outline-none focus:ring-0 focus:border-white"
+                                    name="name"
+                                    value={formData.name}
+                                    placeholder=""
+                                    onChange={handleChange}
+                                    className="peer w-full bg-transparent border-white/50 border-b py-2 text-white focus:outline-none focus:ring-0 focus:border-white"
                                 />
                                 <label
                                     htmlFor="name"
-                                    className="absolute left-0 0ext-gray-40 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-[-0.8rem] peer-focus:text-sm peer-focus:text-white"
+                                    className={`absolute left-0 transition-all text-sm
+                                        ${formData.name ? "top-[-0.8rem] text-white text-sm" : "top-2 text-base text-gray-500"}
+                                        peer-focus:top-[-0.8rem] peer-focus:text-sm peer-focus:text-white`}
                                 >
                                     Name
                                 </label>
@@ -94,35 +139,43 @@ export default function Connect() {
                                 <input
                                     type="email"
                                     id="email"
-                                    placeholder=" "
+                                    name="email"
+                                    value={formData.email}
+                                    placeholder=""
+                                    onChange={handleChange}
                                     className="peer w-full border-white/50 border-b py-2 text-white focus:outline-none focus:ring-0 focus:border-white"
                                 />
                                 <label
                                     htmlFor="email"
-                                    className="absolute left-0 text-gray-400 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-[-0.8rem] peer-focus:text-sm peer-focus:text-white"
+                                    className={`absolute left-0 transition-all text-sm
+                                        ${formData.email ? "top-[-0.8rem] text-white text-sm" : "top-2 text-base text-gray-500"}
+                                        peer-focus:top-[-0.8rem] peer-focus:text-sm peer-focus:text-white`}
                                 >
                                     Email
                                 </label>
                             </div>
                         </div>
 
-                        {/* Message */}
                         <div className="relative w-full bg-[#111111] z-10">
                             <textarea
                                 id="message"
+                                name="message"
                                 rows={6}
-                                placeholder=" "
+                                value={formData.message}
+                                placeholder=""
+                                onChange={handleChange}
                                 className="peer resize-none w-full py-2 border-white/50 border-b text-white focus:outline-none focus:ring-0 focus:border-white"
                             />
                             <label
                                 htmlFor="message"
-                                className="absolute left-0 text-gray-400 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-[-0.8rem] peer-focus:text-sm peer-focus:text-white"
+                                className={`absolute left-0 transition-all text-sm
+                                        ${formData.message ? "top-[-0.8rem] text-white text-sm" : "top-2 text-base text-gray-500"}
+                                        peer-focus:top-[-0.8rem] peer-focus:text-sm peer-focus:text-white`}
                             >
                                 Message
                             </label>
                         </div>
 
-                        {/* Submit Button */}
                         <div className="w-full flex flex-row justify-end items-center gap-10">
                             {!isMobile && (
                                 <div className="w-1/2"></div>

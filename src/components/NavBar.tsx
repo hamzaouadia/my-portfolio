@@ -48,7 +48,7 @@ export default function NavBar() {
                         `}>
                             <p><a onClick={closeMobileMenu} className="hover-target" href="#About">About</a></p>
                             <p><a onClick={closeMobileMenu} className="hover-target" href="#Education">Education</a></p>
-                            <p><a onClick={closeMobileMenu} className="hover-target" href="#Works">Works</a></p>
+                            <p><a onClick={closeMobileMenu} className="hover-target" href="#Projects">Projects</a></p>
                             <p><a onClick={closeMobileMenu} className="hover-target" href="#Connect">Connect</a></p>
                         </div>
                     </div>

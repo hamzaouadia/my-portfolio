@@ -3,7 +3,7 @@ import { useState } from 'react';
 import HeadLine from '../components/HeadLine';
 import About from '../components/About';
 import Education from '../components/Education';
-import Works from '../components/Works';
+import Projects from '../components/Projects';
 import Connect from '../components/Connect';
 import ShowProject from '../components/ShowProject';
 
@@ -29,7 +29,7 @@ export default function Home() {
             <HeadLine />
             <About />
             <Education />
-            <Works setActiveProject={setActiveProject} />
+            <Projects setActiveProject={setActiveProject} />
             <Connect />
         </div>
         </>

@@ -2,10 +2,10 @@ import type { Dispatch, SetStateAction } from 'react';
 import { motion } from "framer-motion";
 
 
-const Projects = [
+const projectsData = [
   {
     name: "AI-Powered Travel Platform",
-    github: "https://github.com/haouadia",
+    github: "",
     description: "A full-stack web platform connecting users to tourism services using modern tech stack.",
     alldescription: `
         Led end‑to‑end development of an AI‑powered travel platform designed to match users with tailored tourism services (hotels, tours, rentals).  
@@ -66,13 +66,13 @@ type Project = {
   alldescription: string;
 };
 
-type WorksProps = {
+type ProjectsProps = {
   setActiveProject: Dispatch<SetStateAction<Project | null>>;
 };
 
-export default function Works({ setActiveProject }: WorksProps) {
+export default function Projects({ setActiveProject }: ProjectsProps) {
     return (
-        <section id='Works' className="h-screen z-10 bg-white flex flex-row justify-center items-center">
+        <section id='Projects' className="h-screen z-10 bg-white flex flex-row justify-center items-center">
             <div className='w-full h-full flex flex-row justify-center items-center lg:px-30 px-4 py-30'>
                 <motion.div
                     initial="hidden"
@@ -81,7 +81,7 @@ export default function Works({ setActiveProject }: WorksProps) {
                     transition={{ staggerChildren: 0.5 }}
                     className='flex w-full h-full flex-col justify-center items-center gap-2'
                 >
-                    {Projects.map((project, index) => (
+                    {projectsData.map((project, index) => (
                         <motion.div
                             key={index}
                             variants={{
