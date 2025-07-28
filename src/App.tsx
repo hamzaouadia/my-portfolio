@@ -38,14 +38,12 @@ function App() {
           <p className="text-lg">Loading...</p>
         </div>
       )}
-      {!isLoading && (
-        <div className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-          <CustomCursor />
-          <NavBar />
-          <Home />
-          <Footer />
-        </div>
-      )}
+      <div className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <CustomCursor />
+        <NavBar />
+        <Home />
+        <Footer />
+      </div>
     </>
   );
 }
