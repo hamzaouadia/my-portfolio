@@ -1,14 +1,15 @@
 import { ArrowDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Ocean from '../assets/videos/ocean-bw.mp4';
-// import Ocean from '../public/ocean-bw.mp4';
+import FullscreenToggle from './FullScreen';
 
 export default function HeadLine() {
     return (
-        <section id="Home" className='relative h-screen w-full  flex flex-row justify-center items-center'>
+        <section id="Home" className='relative h-screen w-full  flex flex-col justify-center items-center'>
             <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover brightness-65">
                 <source src={Ocean} type="video/mp4" />
             </video>
+            <FullscreenToggle />
             <div className='h-full flex flex-col justify-center items-start lg:px-20 px-4 lg:gap-10 gap-5 z-100'>
                 <p className='text-white lg:text-4xl text-2xl italic'>
                     “Websites promote you 24/7: No employee will do that.” -
