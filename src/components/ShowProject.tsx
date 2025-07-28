@@ -80,7 +80,11 @@ export default function ShowProject(
                 duration: 0.3,
                 ease: "power3.out",
             });
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
         }
+
     }, [activeProject]);
 
     return (
