@@ -118,7 +118,7 @@ export default function NavBar() {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ staggerChildren: 0.5 }}
-            className="z-200 flex justify-end p-6 absolute bottom-0 right-0 text-white font-bold mix-blend-difference z-500">
+            className="flex justify-end p-6 absolute bottom-0 right-0 text-white font-bold mix-blend-difference z-500">
             <motion.div
                 variants={{
                     hidden: {opacity: 0, y: 150},
