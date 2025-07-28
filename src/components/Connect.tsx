@@ -73,9 +73,8 @@ export default function Connect() {
             className="min-h-screen z-10 bg-[#111111] flex flex-col justify-center items-center"
         >
             <div className="w-full h-full flex flex-col justify-center items-center">
-                <div className="w-full mt-20 lg:mt-0 lg:w-1/2 flex flex-row justify-center gap-1 items-end px-4 pt-20 lg:pt-0">
+                <div className="w-full mt-20 lg:mt-0 lg:w-1/2 flex flex-row justify-center gap-1 items-end px-4 py-4 pt-20 lg:pt-0 hover-difference">
                     <div className="flex flex-col items-end ">
-                        <div className="">
                             <motion.p
                                 ref={textRef}
                                 initial={{ x: -70 }}
@@ -85,24 +84,22 @@ export default function Connect() {
                             >
                                 I would
                             </motion.p>
-                        </div>
                         <div className="lg:w-80 w-40 bg-white h-[0.2rem] lg:h-1" />
                     </div>
-                        <motion.p
-                            ref={textRef}
-                            initial={{ opacity:0, y: -20 }}
-                            animate={textInView ? { opacity:1, y: 0 } : {}}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
-                            className="lg:-my-[9px] -my-[3px]  lg:text-4xl text-white peace-font-medium whitespace-nowrap"
-                        >
-                            love to hear from you!
-                        </motion.p>
+                    <motion.p
+                        ref={textRef}
+                        initial={{ opacity:0, y: -20 }}
+                        animate={textInView ? { opacity:1, y: 0 } : {}}
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+                        className="lg:-my-[9px] -my-[3px]  lg:text-4xl text-white peace-font-medium whitespace-nowrap"
+                    >
+                        love to hear from you!
+                    </motion.p>
                 </div>
-
 
                 <div className="w-full flex lg:flex-row flex-col text-white items-start justify-center lg:gap-0 gap-8 lg:px-30 px-2 py-30">
                     <div className="lg:w-100 w-full bg-[#111111] z-10">
-                        <p className="w-full peace-font-medium lg:text-end text-center lg:text-[8rem] text-[3.5rem] lg:whitespace-normal whitespace-nowrap">
+                        <p className="w-full peace-font-medium lg:text-end text-center lg:text-[8rem] text-[3.5rem] lg:whitespace-normal whitespace-nowrap hover-difference">
                             GET IN TOUCH
                         </p>
                     </div>

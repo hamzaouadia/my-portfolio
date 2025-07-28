@@ -6,6 +6,7 @@ import Education from '../components/Education';
 import Projects from '../components/Projects';
 import Connect from '../components/Connect';
 import ShowProject from '../components/ShowProject';
+// import Skills from '../components/Skills';
 
 
 type Project = {
@@ -29,6 +30,7 @@ export default function Home() {
             <HeadLine />
             <About />
             <Education />
+            {/* <Skills /> */}
             <Projects setActiveProject={setActiveProject} />
             <Connect />
         </div>

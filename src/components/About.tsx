@@ -19,7 +19,7 @@ export default function About() {
                 </div>
                 <div className='h-full lg:w-3/5 flex lg:px-20 px-4 flex-col justify-center items-start '>
                     <div className=' w-full flex flex-row justify-start items-center border-b-2 border-white'>
-                        <p className='text-start lg:text-[8vw] text-6xl whitespace-nowrap py-5 peace-font-medium'>WHO AM'I?</p>
+                        <p className='text-start lg:text-[8vw] text-6xl whitespace-nowrap py-5 peace-font-medium hover-difference'>WHO AM'I?</p>
                     </div>
                     {AboutText.map((text, index) => (
                         <p key={index} className="text-lg font-light py-2">

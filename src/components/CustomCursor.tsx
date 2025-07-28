@@ -3,13 +3,17 @@ import gsap from "gsap";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const isOverTarget = useRef(false);
 
   useEffect(() => {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
+    const CURSOR_SIZE = 20;
     const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     const mouse = { x: pos.x, y: pos.y };
+
+    
 
     const move = (e: MouseEvent) => {
       mouse.x = e.clientX;
@@ -20,56 +24,115 @@ export default function CustomCursor() {
       pos.x += (mouse.x - pos.x) * 0.2;
       pos.y += (mouse.y - pos.y) * 0.2;
 
-      gsap.set(cursor, {
-        x: pos.x,
-        y: pos.y,
-      });
+      if (!isOverTarget.current) {
+        gsap.set(cursor, {
+          x: pos.x,
+          y: pos.y,
+        });
+      }
 
       requestAnimationFrame(animate);
     };
 
-    document.addEventListener("mousemove", move);
-    animate();
-
-    const handleEnter = (e: Event) => {
+    const hoverableHandleEnter = (e: Event) => {
       const target = e.currentTarget as HTMLElement;
       const rect = target.getBoundingClientRect();
+      isOverTarget.current = true;
 
       gsap.to(cursor, {
-        width: rect.width + 10,
-        height: rect.height + 10,
-        x: rect.left + rect.width / 2,
-        y: rect.top + rect.height / 2,
-        ease: "power3.out",
-        duration: 0.3,
+        width: rect.width,
+        height: rect.height,
+        duration: 0.1,
       });
     };
 
-    const handleLeave = () => {
-      gsap.to(cursor, {
-          width: 20,
-          height: 20,
-          ease: "power3.out",
-          duration: 0.3,
-        });
-      };
-
-      const hoverables = document.querySelectorAll(".hover-target");
-      hoverables.forEach((el) => {
-        el.addEventListener("mouseenter", handleEnter);
-        el.addEventListener("mouseleave", handleLeave);
+    const differenceHandleEnter = () => {
+      gsap.to(cursorRef.current, {
+        width: 200,
+        height: 200,
+        borderRadius: "50%",
+        backgroundColor: "white",
+        mixBlendMode: "difference",
+        duration: 0.1,
       });
+    };
 
-      return () => {
-        document.removeEventListener("mousemove", move);
-        hoverables.forEach((el) => {
-          el.removeEventListener("mouseenter", handleEnter);
-          el.removeEventListener("mouseleave", handleLeave);
-        });
-      };
+    const differenceHandleLeave = () => {
+      gsap.to(cursor, {
+        width: CURSOR_SIZE,
+        height: CURSOR_SIZE,
+        scale: 1,
+        duration: 0.1,
+        borderRadius: "0%",
+        backgroundColor: "transparent",
+      });
+    }
+
+    const hoverableHandleMove = (e: Event) => {
+      if (!isOverTarget.current || !cursor) return;
+
+      const mouseEvent = e as MouseEvent;
+      const target = e.currentTarget as HTMLElement;
+      const rect = target.getBoundingClientRect();
+
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = mouseEvent.clientX - cx;
+      const dy = mouseEvent.clientY - cy;
+
+      gsap.to(cursor, {
+        x: cx + dx * 0.09,
+        y: cy + dy * 0.09,
+        scale: 1,
+        duration: 0.1,
+      });
+    };
+
+    const hoverableHandleLeave = () => {
+      isOverTarget.current = false;
+      gsap.to(cursor, {
+        width: CURSOR_SIZE,
+        height: CURSOR_SIZE,
+        scale: 1,
+        duration: 0.1,
+        borderRadius: "0%",
+      });
+    };
+
+    const hoverables = document.querySelectorAll(".hover-target");
+    const hoverDifference = document.querySelectorAll(".hover-difference");
+
+    hoverables.forEach((el) => {
+      el.addEventListener("mouseenter", hoverableHandleEnter);
+      el.addEventListener("mousemove", hoverableHandleMove);
+      el.addEventListener("mouseleave", hoverableHandleLeave);
+    });
+    
+    hoverDifference.forEach((el) => {
+      el.addEventListener("mouseenter", differenceHandleEnter);
+      el.addEventListener("mouseleave", differenceHandleLeave);
+    });
+
+    document.addEventListener("mousemove", move);
+    animate();
+
+    return () => {
+      document.removeEventListener("mousemove", move);
+      hoverables.forEach((el) => {
+        el.removeEventListener("mouseenter", hoverableHandleEnter);
+        el.removeEventListener("mousemove", hoverableHandleMove);
+        el.removeEventListener("mouseleave", hoverableHandleLeave);
+      });
+      hoverDifference.forEach((el) => {
+        el.removeEventListener("mouseenter", differenceHandleEnter);
+        el.removeEventListener("mouseleave", differenceHandleLeave);
+      });
+      isOverTarget.current = false;
+      gsap.killTweensOf(cursor);
+    };
   }, []);
 
-  return (
+ return (
     <>
       <div
         ref={cursorRef}
@@ -84,8 +147,7 @@ export default function CustomCursor() {
           pointerEvents: "none",
           transform: "translate(-50%, -50%)",
           zIndex: 9999,
-        }
-      }
+        }}
       />
       <style>{`body { cursor: none; }`}</style>
     </>

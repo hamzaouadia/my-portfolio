@@ -72,11 +72,15 @@
     transform: translate(-50%, -50%);
     width: 18px;
     height: 18px;
-    box-shadow: 0 0 0 2px white; /* makes a large white overlay with hole */
+    box-shadow: 0 0 0 2px white;
     mix-blend-mode: difference;
-    pointer-events: none;
 }
 
 .hover-target{
+  cursor: none;
+}
+
+a,input, textarea, label {
+  text-decoration: none;
   cursor: none;
 }

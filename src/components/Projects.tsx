@@ -92,22 +92,22 @@ export default function Projects({ setActiveProject }: ProjectsProps) {
                             style={{ zIndex: 10 - index }}
                             className='w-full flex bg-white  flex-col justify-between border-b py-1 pt-4'
                         >
-                        <div className='w-full flex flex-row justify-start items-center'>
-                            <p className='lg:text-[4vw] py-2 text-[1.5rem] text-start peace-font-medium lg:whitespace-nowrap'>
-                                {project.name}
-                            </p>
-                        </div>
-                        <div className='w-full flex flex-row justify-between items-end'>
-                            <p className='text-sm text-start font-light'>
-                                {project.description}
-                            </p>
-                            <p
-                                onClick={() => setActiveProject(project)}
-                                className='text-sm text-start font-light click-target cursor-pointer hover:underline hover-target'
-                            >
-                                Show
-                            </p>
-                        </div>
+                            <div className='w-full flex flex-row justify-start items-center'>
+                                <p className='lg:text-[4vw] py-2 text-[1.5rem] text-start peace-font-medium lg:whitespace-nowrap hover-difference'>
+                                    {project.name}
+                                </p>
+                            </div>
+                            <div className='w-full flex flex-row justify-between items-end'>
+                                <p className='text-sm text-start font-light'>
+                                    {project.description}
+                                </p>
+                                <p
+                                    onClick={() => setActiveProject(project)}
+                                    className='text-sm text-start font-light click-target cursor-pointer hover:underline px-2 hover-target'
+                                >
+                                    Show
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
