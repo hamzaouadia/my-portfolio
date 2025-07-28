@@ -12,10 +12,8 @@ function App() {
     document.body.style.overflow = 'hidden'; // Lock scroll immediately
 
     const handleLoaded = () => {
-      setTimeout(() => {
         setIsLoading(false);
         document.body.style.overflow = ''; // Unlock scroll after fade
-      }, 500);
     };
 
     if (document.readyState === 'complete') {
@@ -38,6 +36,7 @@ function App() {
           <p className="text-lg">Loading...</p>
         </div>
       )}
+
       <div className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <CustomCursor />
         <NavBar />
